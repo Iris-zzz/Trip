@@ -1,0 +1,74 @@
+{
+  "trip": {
+    "name": "SY & ZZ Latin America 2026",
+    "days": 40,
+    "travellers": 2,
+    "startDate": "2026-10-21",
+    "endDate": "2026-11-30"
+  },
+
+  "nextFocus": {
+    "title": "Machu Picchu 门票",
+    "status": "action_required"
+  },
+
+  "todo": [
+    {
+      "title": "Machu Picchu 门票",
+      "priority": "high",
+      "status": "action_required"
+    },
+    {
+      "title": "Peru Rail 火车票",
+      "priority": "high",
+      "status": "action_required"
+    },
+    {
+      "title": "Jungle Pro 雨林确认单",
+      "priority": "high",
+      "status": "action_required"
+    }
+  ],
+
+  "route": [
+    {
+      "city": "Mexico City"
+    },
+    {
+      "city": "Guanajuato"
+    },
+    {
+      "city": "San Miguel"
+    },
+    {
+      "city": "Oaxaca"
+    },
+    {
+      "city": "Lima"
+    },
+    {
+      "city": "Cusco"
+    },
+    {
+      "city": "Puerto Maldonado"
+    },
+    {
+      "city": "Puerto Natales"
+    },
+    {
+      "city": "El Calafate"
+    },
+    {
+      "city": "El Chalten"
+    },
+    {
+      "city": "Buenos Aires"
+    },
+    {
+      "city": "Iguazu"
+    },
+    {
+      "city": "Santiago"
+    }
+  ]
+}
