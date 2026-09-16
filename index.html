@@ -2,282 +2,194 @@
 <html lang="zh-CN">
 
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>SY & ZZ 中南美旅行手册</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>SY & ZZ · 中南美旅行手册</title>
+
+./favicon.svg
 
 <style>
 
 :root{
-  --bg:#f7f8fb;
+
+  --bg:#f8fafc;
   --card:#ffffff;
-  --text:#111827;
-  --muted:#6b7280;
-  --border:#e5e7eb;
+  --text:#0f172a;
+  --muted:#64748b;
+  --line:#e2e8f0;
+
+  --green:#10b981;
+  --yellow:#f59e0b;
+  --red:#ef4444;
+  --blue:#3b82f6;
+
 }
 
-@media (prefers-color-scheme: dark){
-  :root{
-      --bg:#0f172a;
-      --card:#1e293b;
-      --text:#f8fafc;
-      --muted:#94a3b8;
-      --border:#334155;
-  }
+@media (prefers-color-scheme:dark){
+
+:root{
+
+  --bg:#020617;
+  --card:#0f172a;
+  --text:#f8fafc;
+  --muted:#94a3b8;
+  --line:#334155;
+
 }
 
-*{box-sizing:border-box;}
+}
+
+*{
+  box-sizing:border-box;
+}
 
 body{
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        Segoe UI,
-        sans-serif;
+
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+
+  font-family:
+  -apple-system,
+  BlinkMacSystemFont,
+  "SF Pro Display",
+  "Segoe UI",
+  sans-serif;
+
 }
 
 .container{
-    max-width:1000px;
-    margin:auto;
-    padding:16px;
+
+  max-width:1100px;
+  margin:auto;
+  padding:16px;
+
 }
 
 .card{
-    background:var(--card);
-    border-radius:16px;
-    padding:20px;
-    margin-bottom:16px;
-    border:1px solid var(--border);
+
+  background:var(--card);
+  border:1px solid var(--line);
+
+  border-radius:18px;
+
+  padding:20px;
+
+  margin-bottom:16px;
+
 }
 
-h1,h2{
-    margin-top:0;
+h1,h2,h3{
+
+  margin-top:0;
+
+}
+
+.hero{
+
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:20px;
+
 }
 
 .countdown{
-    font-size:34px;
-    font-weight:700;
+
+  font-size:42px;
+  font-weight:700;
+
 }
 
-.todo{
-    padding:10px 0;
-    border-bottom:1px solid var(--border);
-}
+.big{
 
-.route{
-    line-height:2;
-}
+  font-size:22px;
+  font-weight:600;
 
-.timeline-item{
-    padding:10px 0;
-    border-bottom:1px solid var(--border);
 }
 
 .small{
-    color:var(--muted);
-}
 
-</style>
-</head>
-
-<body>
-
-<div class="container">
-
-<div class="card">
-  <h1>🌎 SY & ZZ 中南美旅行手册</h1>
-
-  <div class="small">
-      自动读取 travel-data.json
-  </div>
-
-  <br>
-
-  <div id="countdown" class="countdown">
-      读取中...
-  </div>
-
-</div>
-
-<div class="card">
-
-  <h2>📌 当前关注</h2>
-
-  <div id="nextFocus">
-      加载中...
-  </div>
-
-</div>
-
-<div class="card">
-
-  <h2>✅ 待办事项</h2>
-
-  <div id="todo">
-      加载中...
-  </div>
-
-</div>
-
-<div class="card">
-
-  <h2>🗺️ 路线</h2>
-
-  <div id="route">
-      加载中...
-  </div>
-
-</div>
-
-<div class="card">
-
-  <h2>📅 时间轴</h2>
-
-  <div id="timeline">
-      加载中...
-  </div>
-
-</div>
-
-</div>
-
-<script>
-
-let tripData=null;
-
-fetch("./travel-data.json")
-.then(response=>response.json())
-.then(data=>{
-
-    tripData=data;
-
-    renderNextFocus();
-    renderTodo();
-    renderRoute();
-    renderTimeline();
-
-});
-
-function renderNextFocus(){
-
-    document.getElementById("nextFocus").innerHTML=
-      "<strong>" +
-      tripData.nextFocus.title +
-      "</strong>";
+  color:var(--muted);
 
 }
 
-function renderTodo(){
+.badge{
 
-    let html="";
+  display:inline-block;
 
-    tripData.todo.forEach(item=>{
+  padding:6px 10px;
 
-        html += `
-         <div class="todo">
-           ${item.title}
-         </div>
-        `;
+ <div class="card">
 
-    });
+<h2>✅ 待办事项</h2>
 
-    document.getElementById("todo").innerHTML=html;
+<h3>🔴 高优先级</h3>
 
-}
+<div id="todo-high"></div>
 
-function renderRoute(){
+<h3 style="margin-top:24px">
+🟠 中优先级
+</h3>
 
-    let html=tripData.route
-      .map(x=>x.city)
-      .join(" → ");
+<div id="todo-medium"></div>
 
-    document.getElementById("route").innerHTML=
-      `<div class="route">${html}</div>`;
+<h3 style="margin-top:24px">
+⚪ 可选
+</h3>
 
-}
+<div id="todo-low"></div>
 
-function renderTimeline(){
+</div>
 
-    if(!tripData.timeline){
+<div class="card">
 
-        document.getElementById("timeline").innerHTML=
-        "稍后补充详细时间轴";
+<h2>💡 实用贴士</h2>
 
-        return;
+<div id="tips"></div>
+
+</div>
+
+<div class="card">
+
+<div class="small">
+
+SY & ZZ Latin America 2026
+
+<br
+  function renderRoute(){
+
+  const svg =
+  document.getElementById("route-svg");
+
+  const colors=[
+    "#ef4444",
+    "#f59e0b",
+    "#10b981",
+    "#3b82f6",
+    "#8b5cf6"
+  ];
+
+  let html="";
+
+  tripData.route.forEach((item,index)=>{
+
+    const x = 60 + index * 75;
+    const y = 120;
+
+    if(index<tripData.route.length-1){
+
+      const x2 = x + 75;
+
+      html += `
+      <line
+        x1="${x}"
+        y1="${y}"
+        x2="${x2}"
+        y2="${y}"
+        stroke="${colors[index%colors.length]}"
+        stroke-width="4"
+      />
+      `;
     }
-
-    let html="";
-
-    tripData.timeline.forEach(item=>{
-
-        html += `
-        <div class="timeline-item">
-            <strong>${item.date}</strong>
-            <br>
-            ${item.city}
-            <br>
-            ${item.title}
-        </div>
-        `;
-
-    });
-
-    document.getElementById("timeline").innerHTML=
-      html;
-
-}
-
-const departureDate =
-new Date("2026-10-21T11:00:00");
-
-function updateTimer(){
-
-    const now=new Date();
-
-    const diff=
-      departureDate-now;
-
-    if(diff<=0){
-
-        document.getElementById("countdown")
-          .innerHTML="已出发";
-
-        return;
-    }
-
-    const days=
-      Math.floor(diff/86400000);
-
-    const hours=
-      Math.floor(
-      (diff%86400000)/3600000
-      );
-
-    const mins=
-      Math.floor(
-      (diff%3600000)/60000
-      );
-
-    const secs=
-      Math.floor(
-      (diff%60000)/1000
-      );
-
-    document.getElementById("countdown")
-      .innerHTML=
-      `${days}天 ${hours}小时 ${mins}分钟 ${secs}秒`;
-
-}
-
-updateTimer();
-
-setInterval(updateTimer,1000);
-
-</script>
-
-</body>
-</html>
