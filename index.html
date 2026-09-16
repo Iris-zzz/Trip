@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>SY & ZZ 中南美旅行手册</title>
+
+<style>
+
+:root{
+  --bg:#f7f8fb;
+  --card:#ffffff;
+  --text:#111827;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+      --bg:#0f172a;
+      --card:#1e293b;
+      --text:#f8fafc;
+      --muted:#94a3b8;
+      --border:#334155;
+  }
+}
+
+*{box-sizing:border-box;}
+
+body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        Segoe UI,
+        sans-serif;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:16px;
+}
+
+.card{
+    background:var(--card);
+    border-radius:16px;
+    padding:20px;
+    margin-bottom:16px;
+    border:1px solid var(--border);
+}
+
+h1,h2{
+    margin-top:0;
+}
+
+.countdown{
+    font-size:34px;
+    font-weight:700;
+}
+
+.todo{
+    padding:10px 0;
+    border-bottom:1px solid var(--border);
+}
+
+.route{
+    line-height:2;
+}
+
+.timeline-item{
+    padding:10px 0;
+    border-bottom:1px solid var(--border);
+}
+
+.small{
+    color:var(--muted);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+  <h1>🌎 SY & ZZ 中南美旅行手册</h1>
+
+  <div class="small">
+      自动读取 travel-data.json
+  </div>
+
+  <br>
+
+  <div id="countdown" class="countdown">
+      读取中...
+  </div>
+
+</div>
+
+<div class="card">
+
+  <h2>📌 当前关注</h2>
+
+  <div id="nextFocus">
+      加载中...
+  </div>
+
+</div>
+
+<div class="card">
+
+  <h2>✅ 待办事项</h2>
+
+  <div id="todo">
+      加载中...
+  </div>
+
+</div>
+
+<div class="card">
+
+  <h2>🗺️ 路线</h2>
+
+  <div id="route">
+      加载中...
+  </div>
+
+</div>
+
+<div class="card">
+
+  <h2>📅 时间轴</h2>
+
+  <div id="timeline">
+      加载中...
+  </div>
+
+</div>
+
+</div>
+
+<script>
+
+let tripData=null;
+
+fetch("./travel-data.json")
+.then(response=>response.json())
+.then(data=>{
+
+    tripData=data;
+
+    renderNextFocus();
+    renderTodo();
+    renderRoute();
+    renderTimeline();
+
+});
+
+function renderNextFocus(){
+
+    document.getElementById("nextFocus").innerHTML=
+      "<strong>" +
+      tripData.nextFocus.title +
+      "</strong>";
+
+}
+
+function renderTodo(){
+
+    let html="";
+
+    tripData.todo.forEach(item=>{
+
+        html += `
+         <div class="todo">
+           ${item.title}
+         </div>
+        `;
+
+    });
+
+    document.getElementById("todo").innerHTML=html;
+
+}
+
+function renderRoute(){
+
+    let html=tripData.route
+      .map(x=>x.city)
+      .join(" → ");
+
+    document.getElementById("route").innerHTML=
+      `<div class="route">${html}</div>`;
+
+}
+
+function renderTimeline(){
+
+    if(!tripData.timeline){
+
+        document.getElementById("timeline").innerHTML=
+        "稍后补充详细时间轴";
+
+        return;
+    }
+
+    let html="";
+
+    tripData.timeline.forEach(item=>{
+
+        html += `
+        <div class="timeline-item">
+            <strong>${item.date}</strong>
+            <br>
+            ${item.city}
+            <br>
+            ${item.title}
+        </div>
+        `;
+
+    });
+
+    document.getElementById("timeline").innerHTML=
+      html;
+
+}
+
+const departureDate =
+new Date("2026-10-21T11:00:00");
+
+function updateTimer(){
+
+    const now=new Date();
+
+    const diff=
+      departureDate-now;
+
+    if(diff<=0){
+
+        document.getElementById("countdown")
+          .innerHTML="已出发";
+
+        return;
+    }
+
+    const days=
+      Math.floor(diff/86400000);
+
+    const hours=
+      Math.floor(
+      (diff%86400000)/3600000
+      );
+
+    const mins=
+      Math.floor(
+      (diff%3600000)/60000
+      );
+
+    const secs=
+      Math.floor(
+      (diff%60000)/1000
+      );
+
+    document.getElementById("countdown")
+      .innerHTML=
+      `${days}天 ${hours}小时 ${mins}分钟 ${secs}秒`;
+
+}
+
+updateTimer();
+
+setInterval(updateTimer,1000);
+
+</script>
+
+</body>
+</html>
