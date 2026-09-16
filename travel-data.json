@@ -1,290 +1,160 @@
 {
   "trip": {
     "name": "SY & ZZ Latin America 2026",
-    "days": 40,
+    "subtitle": "40天墨西哥、秘鲁、智利、阿根廷旅行",
     "travellers": 2,
-    "startDate": "2026-10-21",
-    "endDate": "2026-11-30"
+    "startDate": "2026-10-21T11:00:00+11:00",
+    "endDate": "2026-11-30",
+    "days": 40
   },
 
   "nextFocus": {
-    "title": "Machu Picchu 门票"
+    "title": "Machu Picchu 门票",
+    "type": "todo",
+    "priority": "high"
+  },
+
+  "stats": {
+    "confirmedFlights": 7,
+    "confirmedHotels": 15,
+    "pendingTodos": 8
   },
 
   "todo": [
     {
-      "title": "Machu Picchu 门票"
+      "title": "Machu Picchu 门票",
+      "status": "action_required",
+      "priority": "high"
     },
     {
-      "title": "Peru Rail / Inca Rail 火车票"
+      "title": "Peru Rail / Inca Rail 火车票",
+      "status": "action_required",
+      "priority": "high"
     },
     {
-      "title": "Jungle Pro 雨林确认单"
+      "title": "Jungle Pro 雨林确认单",
+      "status": "action_required",
+      "priority": "high"
     },
     {
-      "title": "百内国家公园门票"
+      "title": "百内国家公园门票",
+      "status": "action_required",
+      "priority": "medium"
     },
     {
-      "title": "莫雷诺冰川活动确认"
+      "title": "莫雷诺冰川活动确认",
+      "status": "action_required",
+      "priority": "medium"
     },
     {
-      "title": "El Calafate → Buenos Aires 航班核对"
+      "title": "El Calafate → BA 航班核对",
+      "status": "action_required",
+      "priority": "medium"
     },
     {
-      "title": "Buenos Aires → Iguazu 航班核对"
+      "title": "BA → Iguazu 航班核对",
+      "status": "action_required",
+      "priority": "medium"
     },
     {
-      "title": "Iguazu → Buenos Aires 航班核对"
+      "title": "Iguazu → BA 航班核对",
+      "status": "action_required",
+      "priority": "medium"
+    },
+    {
+      "title": "Gran Aventura 快艇",
+      "status": "optional",
+      "priority": "low"
+    },
+    {
+      "title": "Don Julio 预约",
+      "status": "optional",
+      "priority": "low"
+    },
+    {
+      "title": "探戈秀",
+      "status": "optional",
+      "priority": "low"
     }
   ],
 
-  "route": [
+  "flights": [
     {
-      "city": "Mexico City"
+      "title": "Melbourne → Mexico City",
+      "status": "confirmed",
+      "date": "2026-10-21"
     },
     {
-      "city": "Guanajuato"
+      "title": "Mexico City → Lima",
+      "status": "confirmed",
+      "date": "2026-11-04"
     },
     {
-      "city": "San Miguel de Allende"
+      "title": "Lima → Cusco",
+      "status": "confirmed",
+      "date": "2026-11-05"
     },
     {
-      "city": "Mexico City"
+      "title": "Cusco → Puerto Maldonado",
+      "status": "confirmed",
+      "date": "2026-11-12"
     },
     {
-      "city": "Oaxaca"
+      "title": "Puerto Maldonado → Puerto Natales",
+      "status": "confirmed",
+      "date": "2026-11-14"
     },
     {
-      "city": "Mexico City"
+      "title": "Buenos Aires → Santiago",
+      "status": "confirmed",
+      "date": "2026-11-28"
     },
     {
-      "city": "Lima"
-    },
-    {
-      "city": "Cusco"
-    },
-    {
-      "city": "Machu Picchu"
-    },
-    {
-      "city": "Puerto Maldonado"
-    },
-    {
-      "city": "Puerto Natales"
-    },
-    {
-      "city": "Torres del Paine"
-    },
-    {
-      "city": "El Calafate"
-    },
-    {
-      "city": "El Chalten"
-    },
-    {
-      "city": "Buenos Aires"
-    },
-    {
-      "city": "Iguazu"
-    },
-    {
-      "city": "Buenos Aires"
-    },
-    {
-      "city": "Santiago Transit"
+      "title": "Santiago → Australia",
+      "status": "confirmed",
+      "date": "2026-11-29"
     }
   ],
 
-  "timeline": [
+  "hotels": [
     {
-      "date": "2026-10-21",
       "city": "Mexico City",
-      "title": "Melbourne → Mexico City"
+      "name": "Condesa Apartment",
+      "status": "confirmed"
     },
     {
-      "date": "2026-10-22",
-      "city": "Mexico City",
-      "title": "Mexico City D1"
-    },
-    {
-      "date": "2026-10-23",
       "city": "Guanajuato",
-      "title": "Mexico City → Guanajuato"
+      "name": "Casa Saucillo66",
+      "status": "confirmed"
     },
     {
-      "date": "2026-10-24",
-      "city": "Guanajuato",
-      "title": "Guanajuato D2"
+      "city": "San Miguel",
+      "name": "Nuño Hotel",
+      "status": "confirmed"
     },
     {
-      "date": "2026-10-25",
-      "city": "San Miguel de Allende",
-      "title": "San Miguel D1"
-    },
-    {
-      "date": "2026-10-26",
-      "city": "Mexico City",
-      "title": "Return to Mexico City"
-    },
-    {
-      "date": "2026-10-27",
-      "city": "Mexico City",
-      "title": "Teotihuacan Day"
-    },
-    {
-      "date": "2026-10-28",
-      "city": "Mexico City",
-      "title": "CDMX South + ADO Night Bus"
-    },
-    {
-      "date": "2026-10-29",
       "city": "Oaxaca",
-      "title": "Oaxaca D1"
+      "name": "Casa Rosa",
+      "status": "confirmed"
     },
     {
-      "date": "2026-10-30",
       "city": "Oaxaca",
-      "title": "Oaxaca D2"
+      "name": "Casa Ivonne",
+      "status": "confirmed"
     },
     {
-      "date": "2026-10-31",
-      "city": "Oaxaca",
-      "title": "Day of the Dead"
-    },
-    {
-      "date": "2026-11-01",
-      "city": "Oaxaca",
-      "title": "Day of the Dead"
-    },
-    {
-      "date": "2026-11-02",
-      "city": "Oaxaca",
-      "title": "ADO Night Bus to Mexico City"
-    },
-    {
-      "date": "2026-11-03",
-      "city": "Mexico City",
-      "title": "Mexico City D4"
-    },
-    {
-      "date": "2026-11-04",
-      "city": "Lima",
-      "title": "Mexico City → Lima"
-    },
-    {
-      "date": "2026-11-05",
       "city": "Cusco",
-      "title": "Lima → Cusco"
+      "name": "Studio Apartment",
+      "status": "confirmed"
     },
     {
-      "date": "2026-11-06",
       "city": "Cusco",
-      "title": "Cusco Old Town"
+      "name": "Casita Azul",
+      "status": "confirmed"
     },
     {
-      "date": "2026-11-07",
-      "city": "Cusco",
-      "title": "Humantay Lake"
-    },
-    {
-      "date": "2026-11-08",
-      "city": "Machu Picchu",
-      "title": "Train to Aguas Calientes (票待确认)"
-    },
-    {
-      "date": "2026-11-09",
-      "city": "Machu Picchu",
-      "title": "Machu Picchu (门票待确认)"
-    },
-    {
-      "date": "2026-11-12",
-      "city": "Puerto Maldonado",
-      "title": "Rainforest D1"
-    },
-    {
-      "date": "2026-11-13",
-      "city": "Puerto Maldonado",
-      "title": "Rainforest D2"
-    },
-    {
-      "date": "2026-11-14",
-      "city": "Puerto Maldonado",
-      "title": "Rainforest D3 / Fly to Chile"
-    },
-    {
-      "date": "2026-11-15",
       "city": "Puerto Natales",
-      "title": "Natales City Walk"
+      "name": "Cosy Room 3",
+      "status": "confirmed"
     },
     {
-      "date": "2026-11-16",
-      "city": "Torres del Paine",
-      "title": "Paine Day 1"
-    },
-    {
-      "date": "2026-11-17",
-      "city": "Torres del Paine",
-      "title": "Base Torres Trek"
-    },
-    {
-      "date": "2026-11-18",
-      "city": "El Calafate",
-      "title": "Border Crossing"
-    },
-    {
-      "date": "2026-11-19",
-      "city": "El Calafate",
-      "title": "Perito Moreno Glacier"
-    },
-    {
-      "date": "2026-11-20",
-      "city": "El Chalten",
-      "title": "Arrival"
-    },
-    {
-      "date": "2026-11-21",
-      "city": "El Chalten",
-      "title": "Fitz Roy Trek"
-    },
-    {
-      "date": "2026-11-22",
-      "city": "El Chalten",
-      "title": "Laguna Torre"
-    },
-    {
-      "date": "2026-11-23",
-      "city": "Buenos Aires",
-      "title": "Arrival BA"
-    },
-    {
-      "date": "2026-11-24",
-      "city": "Buenos Aires",
-      "title": "City Walk"
-    },
-    {
-      "date": "2026-11-25",
-      "city": "Buenos Aires",
-      "title": "Palermo"
-    },
-    {
-      "date": "2026-11-26",
-      "city": "Iguazu",
-      "title": "Brazil Side"
-    },
-    {
-      "date": "2026-11-27",
-      "city": "Iguazu",
-      "title": "Argentina Side"
-    },
-    {
-      "date": "2026-11-28",
-      "city": "Santiago",
-      "title": "BA → Santiago"
-    },
-    {
-      "date": "2026-11-29",
-      "city": "Santiago Transit",
-      "title": "Transit Night"
-    }
-  ]
-}
