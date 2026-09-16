@@ -1,74 +1,222 @@
 {
   "trip": {
-    "name": "SY & ZZ Latin America 2026",
-    "days": 40,
-    "travellers": 2,
-    "startDate": "2026-10-21",
-    "endDate": "2026-11-30"
-  }
+    "title": "2026 中美南美 40天双人旅行",
+    "startDate": "2026-10-21T11:00:00+11:00",
+    "travelers": 2
+  },
 
-  "nextFocus": {
-    "title": "Machu Picchu 门票",
-    "status": "action_required"
-  }
+  "nextEvent": {
+    "title": "墨尔本飞往墨西哥城",
+    "datetime": "2026-10-21T11:00:00+11:00"
+  },
 
-  "todo": [
+  "todos": [
     {
-      "title": "Machu Picchu 门票",
-      "priority": "high",
-      "status": "action_required"
-    }
+      "text": "确认马丘比丘门票",
+      "done": false
+    },
     {
-      "title": "Peru Rail 火车票",
-      "priority": "high",
-      "status": "action_required"
-    }
+      "text": "确认圣谷交通",
+      "done": false
+    },
     {
-      "title": "Jungle Pro 雨林确认单",
-      "priority": "high",
-      "status": "action_required"
+      "text": "确认百内住宿",
+      "done": false
+    },
+    {
+      "text": "确认查尔腾住宿",
+      "done": false
+    },
+    {
+      "text": "购买旅行保险",
+      "done": true
     }
-  ]
+  ],
+
+  "bookings": [
+    {
+      "type": "flight",
+      "status": "confirmed",
+      "title": "Melbourne → Mexico City",
+      "date": "2026-10-21",
+      "from": "MEL",
+      "to": "MEX"
+    },
+    {
+      "type": "flight",
+      "status": "confirmed",
+      "title": "Mexico City → Lima",
+      "date": "2026-11-04",
+      "from": "MEX",
+      "to": "LIM"
+    },
+    {
+      "type": "flight",
+      "status": "confirmed",
+      "title": "Lima → Cusco",
+      "date": "2026-11-05",
+      "from": "LIM",
+      "to": "CUZ"
+    },
+    {
+      "type": "flight",
+      "status": "confirmed",
+      "title": "Cusco → Puerto Maldonado",
+      "date": "2026-11-12",
+      "from": "CUZ",
+      "to": "PEM"
+    },
+    {
+      "type": "flight",
+      "status": "confirmed",
+      "title": "Puerto Maldonado → Puerto Natales",
+      "date": "2026-11-14",
+      "from": "PEM",
+      "to": "PNT"
+    }
+  ],
 
   "route": [
     {
-      "city": "Mexico City"
-    }
+      "name": "Mexico City",
+      "lat": 19.4326,
+      "lng": -99.1332,
+      "stay": "2026-10-21 ~ 2026-10-24"
+    },
     {
-      "city": "Guanajuato"
-    }
+      "name": "Guanajuato",
+      "lat": 21.019,
+      "lng": -101.2574,
+      "stay": "2026-10-24 ~ 2026-10-27"
+    },
     {
-      "city": "San Miguel"
-    }
+      "name": "San Miguel de Allende",
+      "lat": 20.9144,
+      "lng": -100.7436,
+      "stay": "2026-10-27 ~ 2026-10-29"
+    },
     {
-      "city": "Oaxaca"
-    }
+      "name": "Oaxaca",
+      "lat": 17.0732,
+      "lng": -96.7266,
+      "stay": "2026-10-29 ~ 2026-11-04"
+    },
     {
-      "city": "Lima"
-    }
+      "name": "Lima",
+      "lat": -12.0464,
+      "lng": -77.0428,
+      "stay": "2026-11-04 ~ 2026-11-05"
+    },
     {
-      "city": "Cusco"
-    }
+      "name": "Cusco",
+      "lat": -13.5319,
+      "lng": -71.9675,
+      "stay": "2026-11-05 ~ 2026-11-12"
+    },
     {
-      "city": "Puerto Maldonado"
-    }
+      "name": "Puerto Maldonado",
+      "lat": -12.5933,
+      "lng": -69.1891,
+      "stay": "2026-11-12 ~ 2026-11-14"
+    },
     {
-      "city": "Puerto Natales"
+      "name": "Puerto Natales",
+      "lat": -51.7236,
+      "lng": -72.506,
+      "stay": "2026-11-15 ~ 2026-11-18"
     }
+  ],
+
+  "days": [
     {
-      "city": "El Calafate"
-    }
+      "day": 1,
+      "date": "2026-10-21",
+      "city": "Mexico City",
+      "hotel": "待补充",
+      "items": [
+        {
+          "time": "11:00",
+          "title": "Melbourne 出发"
+        }
+      ]
+    },
     {
-      "city": "El Chalten"
-    }
+      "day": 2,
+      "date": "2026-10-22",
+      "city": "Mexico City",
+      "hotel": "待补充",
+      "items": []
+    },
     {
-      "city": "Buenos Aires"
-    }
+      "day": 15,
+      "date": "2026-11-04",
+      "city": "Lima",
+      "hotel": "待补充",
+      "items": [
+        {
+          "time": "22:00",
+          "title": "Mexico City 飞往 Lima"
+        }
+      ]
+    },
     {
-      "city": "Iguazu"
-    }
+      "day": 16,
+      "date": "2026-11-05",
+      "city": "Cusco",
+      "hotel": "待补充",
+      "items": [
+        {
+          "time": "08:00",
+          "title": "Lima 飞往 Cusco",
+          "bookingRequired": false
+        }
+      ]
+    },
     {
-      "city": "Santiago"
+      "day": 19,
+      "date": "2026-11-08",
+      "city": "Machu Picchu",
+      "hotel": "待补充",
+      "items": [
+        {
+          "time": "08:00",
+          "title": "马丘比丘",
+          "bookingRequired": true
+        }
+      ]
+    },
+    {
+      "day": 23,
+      "date": "2026-11-12",
+      "city": "Puerto Maldonado",
+      "hotel": "待补充",
+      "items": [
+        {
+          "time": "10:05",
+          "title": "Cusco 飞往 Puerto Maldonado"
+        }
+      ]
+    },
+    {
+      "day": 25,
+      "date": "2026-11-14",
+      "city": "Transit",
+      "hotel": "航班中",
+      "items": [
+        {
+          "time": "14:35",
+          "title": "Puerto Maldonado 飞往 Puerto Natales"
+        }
+      ]
     }
+  ],
+
+  "tips": [
+    "马丘比丘门票建议提前预订",
+    "库斯科前两天避免剧烈运动",
+    "百内国家公园天气变化极快",
+    "亡灵节期间瓦哈卡酒店价格上涨明显",
+    "所有公开页面不展示确认号与证件信息"
   ]
 }
+``
