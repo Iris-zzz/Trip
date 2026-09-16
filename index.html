@@ -1,195 +1,139 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
-
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
-<title>SY & ZZ · 中南美旅行手册</title>
-
-./favicon.svg
+<title>2026 中美南美旅行</title>
 
 <style>
-
 :root{
-
-  --bg:#f8fafc;
+  --bg:#f7f7f7;
   --card:#ffffff;
-  --text:#0f172a;
-  --muted:#64748b;
-  --line:#e2e8f0;
-
-  --green:#10b981;
-  --yellow:#f59e0b;
-  --red:#ef4444;
-  --blue:#3b82f6;
-
+  --text:#222;
+  --sub:#666;
+  --accent:#0a84ff;
 }
 
-@media (prefers-color-scheme:dark){
-
+@media (prefers-color-scheme: dark){
 :root{
-
-  --bg:#020617;
-  --card:#0f172a;
-  --text:#f8fafc;
-  --muted:#94a3b8;
-  --line:#334155;
-
-}
-
-}
-
-*{
-  box-sizing:border-box;
-}
-
+  --bg:#0f1115;
+  --card:#171a21;
+  --text:#fff;
+  --sub:#aaa;
+  --accent:#58a6ff;
+}}
 body{
-
   margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
   background:var(--bg);
   color:var(--text);
-
-  font-family:
-  -apple-system,
-  BlinkMacSystemFont,
-  "SF Pro Display",
-  "Segoe UI",
-  sans-serif;
-
 }
-
 .container{
-
-  max-width:1100px;
+  max-width:900px;
   margin:auto;
   padding:16px;
-
 }
-
 .card{
-
   background:var(--card);
-  border:1px solid var(--line);
-
   border-radius:18px;
-
-  padding:20px;
-
+  padding:16px;
   margin-bottom:16px;
-
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
 }
-
-h1,h2,h3{
-
+h1,h2{
   margin-top:0;
-
 }
-
-.hero{
-
-  display:grid;
-  grid-template-columns:1fr auto;
-  gap:20px;
-
-}
-
 .countdown{
-
-  font-size:42px;
+  font-size:38px;
   font-weight:700;
-
+  color:var(--accent);
 }
-
-.big{
-
-  font-size:22px;
-  font-weight:600;
-
-}
-
 .small{
-
-  color:var(--muted);
-
+  color:var(--sub);
+  font-size:14px;
 }
+.flight{
+  padding:10px 0;
+  border-bottom:1px solid rgba(128,128,128,.15);
+}
+.flight:last-child{
+  border:none;
+}
+.todo{
+  padding:6px 0;
+}
+svg{
+  width:100%;
+  height:auto;
+}
+.route-point{
+  fill:#0a84ff;
+}
+</style>
+</head>
 
-.badge{
+<body>
 
-  display:inline-block;
+<div class="container">
 
-  padding:6px 10px;
-
- <div class="card">
-
-<h2>✅ 待办事项</h2>
-
-<h3>🔴 高优先级</h3>
-
-<div id="todo-high"></div>
-
-<h3 style="margin-top:24px">
-🟠 中优先级
-</h3>
-
-<div id="todo-medium"></div>
-
-<h3 style="margin-top:24px">
-⚪ 可选
-</h3>
-
-<div id="todo-low"></div>
-
-</div>
+<h1>🌎 2026 中美南美旅行</h1>
 
 <div class="card">
-
-<h2>💡 实用贴士</h2>
-
-<div id="tips"></div>
-
-</div>
-
-<div class="card">
-
+<h2>此刻关注</h2>
+<div id="nextEvent">加载中...</div>
+<div class="countdown" id="countdown">--</div>
 <div class="small">
+当前待办：
+<span id="nextTodo">加载中...</span>
+</div>
+</div>
 
-SY & ZZ Latin America 2026
+<div class="card">
+<h2>行程路线</h2>
 
-<br
-  function renderRoute(){
+<svg viewBox="0 0 800 180">
 
-  const svg =
-  document.getElementById("route-svg");
+<line x1="60" y1="90" x2="740" y2="90"
+stroke="#0a84ff"
+stroke-width="4"/>
 
-  const colors=[
-    "#ef4444",
-    "#f59e0b",
-    "#10b981",
-    "#3b82f6",
-    "#8b5cf6"
-  ];
+<circle cx="60" cy="90" r="8" class="route-point"/>
+<circle cx="180" cy="90" r="8" class="route-point"/>
+<circle cx="300" cy="90" r="8" class="route-point"/>
+<circle cx="420" cy="90" r="8" class="route-point"/>
+<circle cx="550" cy="90" r="8" class="route-point"/>
+<circle cx="740" cy="90" r="8" class="route-point"/>
 
-  let html="";
+<text x="30" y="130">Mexico City</text>
+<text x="150" y="130">Guanajuato</text>
+<text x="260" y="130">Oaxaca</text>
+<text x="410" y="130">Lima</text>
+<text x="520" y="130">Cusco</text>
+<text x="700" y="130">Patagonia</text>
 
-  tripData.route.forEach((item,index)=>{
+</svg>
+</div>
 
-    const x = 60 + index * 75;
-    const y = 120;
+<div class="card">
+<h2>已确认交通</h2>
+<div id="bookings"></div>
+</div>
 
-    if(index<tripData.route.length-1){
+<div class="card">
+<h2>待办事项</h2>
+<div id="todos"></div>
+</div>
 
-      const x2 = x + 75;
+<div class="card">
+<h2>实用贴士</h2>
+<ul id="tips"></ul>
+</div>
 
-      html += `
-      <line
-        x1="${x}"
-        y1="${y}"
-        x2="${x2}"
-        y2="${y}"
-        stroke="${colors[index%colors.length]}"
-        stroke-width="4"
-      />
-      `;
-    }
+</div>
+
+<script>
+
+async function loadData(){
+
+const res = await fetch("travel-data.json");
+const data = 
